@@ -23,6 +23,7 @@ async function bootstrap() {
   })
 
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   console.log("LISTENING ON PORT:", port)
   await app.listen(port);
 }
