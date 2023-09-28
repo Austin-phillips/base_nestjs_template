@@ -37,6 +37,10 @@ You will also need to create a new firebase project and create a new service acc
 $ npm install
 ```
 
+```bash
+$ npx prisma migrate dev --name first-migration
+```
+
 ## Running the app
 
 ```bash
