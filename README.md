@@ -26,6 +26,11 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Getting started
+
+You will need to create a postgresdb and add the connection string in the env.
+You will also need to create a new firebase project and create a new service account. Add those credentials in the env.
+
 ## Installation
 
 ```bash
