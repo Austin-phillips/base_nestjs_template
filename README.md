@@ -38,7 +38,7 @@ $ npm install
 ```
 
 ```bash
-$ npx prisma migrate dev --name first-migration
+$ npx prisma migrate dev --name first-migrationd
 ```
 
 ## Running the app
