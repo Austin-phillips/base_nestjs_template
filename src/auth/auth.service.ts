@@ -52,7 +52,7 @@ export class AuthService {
     const userExist = await this.prismaService.user.findFirst({ where: { email: data.email }});
 
     if (userExist) {
-      throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
+      throw new HttpException({message: 'Email already exists', status: HttpStatus.CONFLICT}, HttpStatus.CONFLICT);
     }
 
     const salt = Number(process.env.SALT);
@@ -79,6 +79,6 @@ export class AuthService {
   }
 
   createRefreshToken(payload: Payload) {
-    return this.jwtService.sign(payload, {expiresIn: '7d'})
+    return this.jwtService.sign(payload, {expiresIn: '1h'})
   }
 }

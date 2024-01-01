@@ -1,8 +1,9 @@
-import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { CreateUserDto } from 'src/types/create-user.dto';
 import { RefreshJwtAuthGuard } from './guards/refresh-jwt-auth.guard';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -23,5 +24,11 @@ export class AuthController {
   @Post('refresh')
   async refreshToken(@Req() req: any) {
     return this.authService.refreshToken(req.user);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('validate')
+  validate() {
+    return { statusCode: 200 };
   }
 }
